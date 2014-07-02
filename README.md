@@ -29,7 +29,7 @@ A Fritzing schematic. This schematic only represents the logical connections I m
 
 <b>Things to take note before modifying my code/design:</b>  
 
-1. DHT22 sensor needs at least 2 seconds delay between readings.  
+1. AM2302 sensor needs at least 2 seconds delay between readings.  
 
 2. One is supposed to add a pull-up resistor for the I2C bus lines SCL and SDA if more than one device (I2C LCD and Chronodot) uses them. I tried without the resistor and it seems to work fine.
 
