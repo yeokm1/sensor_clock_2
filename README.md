@@ -23,7 +23,7 @@ Optional:
 3. Micro-USB cable  
 
 
-![Screen](/misc/sensor clock schematic 2.png)
+![Screen])/misc/sensor clock 2 schematic.png)
 
 A Fritzing schematic. This schematic only represents the logical connections I made. The physical connections differs due to space issues. As Fritzing does not have DHT22, DS3231 chronodot and I2C LCD, I modified some existing and downloaded designs.
 
