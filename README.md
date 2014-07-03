@@ -1,12 +1,16 @@
 sensor_clock_2
 ==============
 
-A clock composed of an Arduino, temperature and humidity sensors. A light-dependent resistor is included to dynamically switch on/off the backlight depending on the surrounding light conditions. Includes integrated charger. Simpler than the  [previous sensor-clock](https://github.com/yeokm1/sensor-clock).
+A clock composed of an Arduino, temperature and humidity sensors. A light-dependent resistor (LDR) is included to dynamically switch on/off the backlight depending on the surrounding light conditions. Includes integrated charger. Simpler than the  [previous sensor-clock](https://github.com/yeokm1/sensor-clock).
 
 
-![Screen](/misc/front.jpg)
+![Screen](/misc/front-dim.jpg)
 
-The white AM2302 temperature/humidity sensor is placed externally to prevent heat from the Arduino from affecting the measurement.
+The white AM2302 temperature/humidity sensor is placed externally to prevent heat from the Arduino from affecting the measurement. Try to spot the LDR.
+
+![Screen](/misc/front-backlight.jpg)
+
+Simulating a dark environment.
 
 
 <b>Main Parts used:</b>  
