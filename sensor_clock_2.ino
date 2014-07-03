@@ -10,6 +10,8 @@
 
 #define LED_13_PIN 13
 
+#define LDR_PIN A1
+
 #define DHTPIN A0 
 #define DHTTYPE DHT22 
 
@@ -22,6 +24,8 @@
 
 #define SLEEP_INTERVAL 250 //0.25s
 #define SLEEP_LONG_INTERVAL 45000 //45s
+
+#define LIGHT_THRESHOLD 100
 
 #define OFF_HOUR 01
 #define OFF_MIN 00
@@ -71,6 +75,8 @@ int prevUpdateTimeSecond = 0;
 int prevUpdateTurnOnAndOffMinute = 0;
 
 bool currentlyOn = true;
+
+bool isLcdBacklightOn = false;
 
 void setup(){
   Serial.begin(9600);
@@ -131,6 +137,25 @@ void loop(){
       prevUpdateTimeSecond = second;
       String dateString = generateDateTimeString(now.year(), now.month(), now.day(), now.hour(), now.minute(), now.second());
       printThisOnLCDLine(dateString, 0);
+      
+      int lightValue = analogRead(LDR_PIN);
+      Serial.println("LDR");
+      Serial.println(lightValue);
+      
+      if(lightValue < LIGHT_THRESHOLD){
+        //Dark, turn on backlight
+        if(!isLcdBacklightOn){
+          lcd.backlight();
+          isLcdBacklightOn = true;
+        }
+      } else {
+        //Bright, turn off backlight
+        if(isLcdBacklightOn){
+          lcd.noBacklight();
+          isLcdBacklightOn = false;
+        }
+        
+      }
     }
 
 
@@ -176,6 +201,7 @@ void loop(){
       if(hour == OFF_HOUR && minute == OFF_MIN){
         currentlyOn = false;
         lcd.clear();
+        lcd.noBacklight();
         longSleep();
       }
     
