@@ -1,7 +1,8 @@
 sensor_clock_2
 ==============
 
-A clock composed of an Arduino, temperature and humidity sensors. Includes integrated charger. Simpler than old sensor clock
+A clock composed of an Arduino, temperature and humidity sensors. A light-dependent resistor is included to dynamically switch on/off the backlight depending on the surrounding light conditions. Includes integrated charger. Simpler than the  [previous sensor-clock](https://github.com/yeokm1/sensor-clock).
+
 
 ![Screen](/misc/front.jpg)
 
@@ -15,6 +16,8 @@ The white AM2302 temperature/humidity sensor is placed externally to prevent hea
 3. AM2302 temperature and humidity sensor  (wired DHT22)
 4. Chronodot v2.1 Real Time Clock (Based on DS3231 temperature compensated RTC crystal. Temperature sensor unused)
 5. Adafruit PowerBoost 500 Charger (Rechargeable 5V Lipo USB Boost @ 500mA+)
+6. Light-dependent Resistor (LDR)
+7. 1x 10k ohm resistor for LDR
 
 Optional:  
 
