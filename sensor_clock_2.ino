@@ -27,10 +27,10 @@
 
 #define LIGHT_THRESHOLD 100
 
-#define OFF_HOUR 01
+#define OFF_HOUR 00
 #define OFF_MIN 00
 
-#define ON_HOUR 06
+#define ON_HOUR 06 //Must be bigger than OFF_HOUR
 #define ON_MIN 30
 
 #define TURN_OFF_AT_TIMES true  //Set to false if you don't want the screen and readings to stop at certain times.
@@ -198,10 +198,14 @@ void loop(){
     Serial.println("Checking time");
     if(currentlyOn){
     
-      if(hour == OFF_HOUR && minute == OFF_MIN){
+      if(((hour == OFF_HOUR && minute >= OFF_MIN)
+          || (hour > OFF_HOUR && hour < ON_HOUR)) //Exceeded OFF time. The moment display turns on to indicate lights out, go to sleep. 
+        && isLcdBacklightOn){ //Don't enter sleep mode if background is still bright enough
+        
         currentlyOn = false;
         lcd.clear();
         lcd.noBacklight();
+        isLcdBacklightOn = false;
         longSleep();
       }
     
