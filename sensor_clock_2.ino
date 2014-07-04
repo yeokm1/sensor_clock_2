@@ -25,13 +25,13 @@
 #define SLEEP_INTERVAL 250 //0.25s
 #define SLEEP_LONG_INTERVAL 45000 //45s
 
-#define LIGHT_THRESHOLD 100
+#define LIGHT_THRESHOLD 70
 
 #define OFF_HOUR 00
 #define OFF_MIN 00
 
-#define ON_HOUR 06 //Must be bigger than OFF_HOUR
-#define ON_MIN 30
+#define ON_HOUR 07 //Must be bigger than OFF_HOUR
+#define ON_MIN 00
 
 #define TURN_OFF_AT_TIMES true  //Set to false if you don't want the screen and readings to stop at certain times.
 
