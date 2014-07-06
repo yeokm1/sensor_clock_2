@@ -129,6 +129,10 @@ void loop(){
   int second = now.second();  
   int minute = now.minute();
   int hour = now.hour();
+  
+  int lightValue = analogRead(LDR_PIN);
+  Serial.println("LDR");
+  Serial.println(lightValue);
 
   if(currentlyOn){
 
@@ -138,9 +142,7 @@ void loop(){
       String dateString = generateDateTimeString(now.year(), now.month(), now.day(), now.hour(), now.minute(), now.second());
       printThisOnLCDLine(dateString, 0);
       
-      int lightValue = analogRead(LDR_PIN);
-      Serial.println("LDR");
-      Serial.println(lightValue);
+
       
       if(lightValue < LIGHT_THRESHOLD){
         //Dark, turn on backlight
@@ -153,8 +155,7 @@ void loop(){
         if(isLcdBacklightOn){
           lcd.noBacklight();
           isLcdBacklightOn = false;
-        }
-        
+        }        
       }
     }
 
@@ -211,7 +212,8 @@ void loop(){
     
    } else {
 
-    if(hour == ON_HOUR && minute == ON_MIN){
+    if((lightValue >= LIGHT_THRESHOLD) //If background bright enough during off hour, turns thing back on
+      || (hour == ON_HOUR && minute == ON_MIN)){
       currentlyOn = true;
     } else {
       longSleep();
