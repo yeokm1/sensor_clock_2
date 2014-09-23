@@ -231,9 +231,7 @@ void loop(){
   } 
   
 
- //shortSleep();
- delay(500);
-
+ shortSleep();
 
 }
 
