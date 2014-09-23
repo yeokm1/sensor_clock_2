@@ -6,12 +6,7 @@ A clock composed of an Arduino, temperature and humidity sensors. A light-depend
 
 ![Screen](/misc/front-dim.jpg)
 
-The white AM2302 temperature/humidity sensor is placed externally to prevent heat from the Arduino from affecting the measurement. Try to spot the LDR.
-
-![Screen](/misc/front-backlight.jpg)
-
-Simulating a dark environment.
-
+The white AM2302 temperature/humidity sensor is placed externally to prevent heat from the Arduino from affecting the measurement.
 
 <b>Main Parts used:</b>  
 
