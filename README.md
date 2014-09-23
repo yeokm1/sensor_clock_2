@@ -22,6 +22,7 @@ Simulating a dark environment.
 5. Adafruit PowerBoost 500 Shield
 6. Light-dependent Resistor (LDR)
 7. 1x 10k ohm resistor for LDR
+8. 2x Mini Solderless breadboard - 2x8 points
 
 Optional:  
 
