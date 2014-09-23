@@ -7,6 +7,7 @@
 
 #include <LCD03.h>
  
+#define BATT_PIN A3 
 
 #define LED_13_PIN 13
 
@@ -26,6 +27,7 @@
 #define SLEEP_LONG_INTERVAL 45000 //45s
 
 #define LIGHT_THRESHOLD 50
+#define BATT_MILLIVOLT_NOT_TURN_ON_LIGHT_THRESHOLD 3500
 
 #define OFF_HOUR 00
 #define OFF_MIN 00
@@ -133,7 +135,7 @@ void loop(){
   int lightValue = analogRead(LDR_PIN);
   Serial.println("LDR");
   Serial.println(lightValue);
-
+  
   if(currentlyOn){
 
   //Update time only if second changes. Prevent needless requests to LCD
@@ -145,10 +147,16 @@ void loop(){
 
       
       if(lightValue < LIGHT_THRESHOLD){
+        
         //Dark, turn on backlight
         if(!isLcdBacklightOn){
-          lcd.backlight();
-          isLcdBacklightOn = true;
+          
+          int battMilliVolt = getBatteryMilliVoltage();
+          
+          if(battMilliVolt > BATT_MILLIVOLT_NOT_TURN_ON_LIGHT_THRESHOLD){
+            lcd.backlight();
+            isLcdBacklightOn = true;
+          }
         }
       } else {
         //Bright, turn off backlight
@@ -223,7 +231,8 @@ void loop(){
   } 
   
 
- shortSleep();
+ //shortSleep();
+ delay(500);
 
 
 }
@@ -236,6 +245,16 @@ void shortSleep(){
 
 void longSleep(){
   Sleepy::loseSomeTime(SLEEP_LONG_INTERVAL);
+}
+
+int getBatteryMilliVoltage(){
+ int battValue = analogRead(BATT_PIN);
+ int battMilliVoltage = (((float) battValue) / 1024) * 5000;
+ Serial.print("Batt: ");
+ Serial.println(battMilliVoltage);
+ 
+ return battMilliVoltage;
+
 }
 
 
