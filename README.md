@@ -19,7 +19,7 @@ Simulating a dark environment.
 2. I2C LCD based on LCD03  
 3. AM2302 temperature and humidity sensor  (wired DHT22)
 4. Chronodot v2.1 Real Time Clock (Based on DS3231 temperature compensated RTC crystal. Temperature sensor unused)
-5. Adafruit PowerBoost 500 Charger (Rechargeable 5V Lipo USB Boost @ 500mA+)
+5. Adafruit PowerBoost 500 Shield
 6. Light-dependent Resistor (LDR)
 7. 1x 10k ohm resistor for LDR
 
@@ -32,7 +32,7 @@ Optional:
 
 ![Screen](/misc/sensor clock 2 schematic.png)
 
-A Fritzing schematic. This schematic only represents the logical connections I made. The physical connections differs due to space issues. As Fritzing does not have DHT22, DS3231 chronodot and I2C LCD, I modified some existing and downloaded designs.
+A Fritzing schematic. This schematic only represents the logical connections I made. The physical connections differs due to space issues. As Fritzing does not have DHT22, DS3231 chronodot and I2C LCD, I modified some existing and downloaded designs. Code assumes solder jumper on Powerboost Shield is soldered on pin A3.
 
 <b>Things to take note before modifying my code/design:</b>  
 
