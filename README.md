@@ -10,8 +10,7 @@ The white AM2302 temperature/humidity sensor is placed externally to prevent hea
 
 <a href="misc/innards.jpg"><img src="misc/innards.jpg" align="centre" height="486" width="452" ></a>
 
-LDR has not been attached yet.
-
+Innards.
 
 <b>Main Parts used:</b>  
 
