@@ -8,7 +8,7 @@ A clock composed of an Arduino, temperature and humidity sensors. A light-depend
 
 The white AM2302 temperature/humidity sensor is placed externally to prevent heat from the Arduino from affecting the measurement.
 
-<a href="url"><img src="misc/innards.jpg" align="centre" height="486" width="452" ></a>
+<a href="misc/innards.jpg"><img src="misc/innards.jpg" align="centre" height="486" width="452" ></a>
 
 LDR has not been attached yet.
 
