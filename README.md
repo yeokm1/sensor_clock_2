@@ -12,6 +12,10 @@ The white AM2302 temperature/humidity sensor is placed externally to prevent hea
 
 Innards.
 
+<a href="misc/bottom-plate.jpg"><img src="misc/bottom-plate.jpg" align="centre" height="484" width="648" ></a>
+
+Because of the extra charging connector, I cannot use the default plastic case that came with the case. This base is designed and 3D-printed by me. The Designspark Mechanical and STL files are also in this repo.
+
 <b>Main Parts used:</b>  
 
 1. Arduino UNO R3  (An Uno or other boards will work too)  
